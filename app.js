@@ -20,13 +20,9 @@ app.use(cors({
     origin: '*',
     credentials: true
 }))
-// app.use(express.static('dist/front-lava-autos/browser'))
 app.use(express.json())
 app.use(requestLogger)
 
-app.use('/', (req, res) => {
-    res.send('hello')
-})
 app.use('/api/login', loginRouter)
 app.use('/api/users', userRouter)
 app.use('/api/employees', userExtractor, employeesRouter)
