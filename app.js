@@ -20,6 +20,8 @@ app.use(cors({
     origin: '*',
     credentials: true
 }))
+
+app.use(express.static('dist/front-lava-autos/browser'))
 app.use(express.json())
 app.use(requestLogger)
 
