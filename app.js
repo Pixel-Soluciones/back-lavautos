@@ -21,7 +21,7 @@ app.use(cors({
     credentials: true
 }))
 
-app.use(express.static('dist/front-lava-autos/browser'))
+app.use(express.static('dist'))
 app.use(express.json())
 app.use(requestLogger)
 
