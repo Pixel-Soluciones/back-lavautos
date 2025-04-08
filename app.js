@@ -26,7 +26,7 @@ app.use(express.json())
 app.use(requestLogger)
 
 app.use('/api/login', loginRouter)
-app.use('/api/users', userRouter)
+app.use('/api/users', userExtractor, userRouter)
 app.use('/api/employees', userExtractor, employeesRouter)
 app.use('/api/services', userExtractor, servicesRouter)
 app.use('/api/vehicles', userExtractor, vehiclesRouter)
