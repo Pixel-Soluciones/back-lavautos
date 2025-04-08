@@ -11,6 +11,11 @@ import reportsRouter from './routes/reports.route.js'
 import './models/associations.js';
 import { requestLogger, unknownEndpoint, errorHandler, userExtractor } from './utils/middleware.js'
 import servicesRouter from './routes/services.route.js'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 
@@ -33,6 +38,10 @@ app.use('/api/vehicles', userExtractor, vehiclesRouter)
 app.use('/api/vehicle-entry', userExtractor, vehicleEntryRouter)
 app.use('/api/asigned-services', userExtractor, asignedServicesRouter)
 app.use('/api/reports', reportsRouter)
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 app.use(unknownEndpoint)
 app.use(errorHandler)
