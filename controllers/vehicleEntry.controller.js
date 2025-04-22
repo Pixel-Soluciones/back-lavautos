@@ -116,6 +116,18 @@ const updateVehicleEntry = async (req, res) => {
 
   try {
     const { vehicle: vehicleData, services } = req.body;
+    const existingVehicle = await Vehicle.findOne({
+      where: { placa: vehicleData.placa },
+      transaction,
+    });
+
+    if (!existingVehicle) {
+      return res.status(404).json({
+        error: "Vehículo no encontrado",
+      });
+    }
+
+    await existingVehicle.update(vehicleData, { transaction });
     const { id } = req.params;
     const vehicleEntry = await VehicleEntry.findByPk(id, { transaction });
     if (!vehicleEntry) {
