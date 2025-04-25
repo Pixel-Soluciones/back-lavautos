@@ -9,9 +9,9 @@ import{a as bn}from"./chunk-6HSLBKDU.js";import{a as mn}from"./chunk-ZMK2ANYN.js
       <div style="text-align:center">
         <img src="iconos-botones/icono-voucher.png" alt="Logo" style="width:130px; margin:10px auto; display:block; padding-top: 15px;" />
         <strong>Lavadero Colombianito</strong><br/>
-        NIT: 900000000-1<br/>
-        Calle 123 #45-67<br/>
-        Tel: 300 123 4567
+        NIT: 27.220.560 <br/>
+        Carrera 16 No. 21-39, Pasto - Nari\xF1o <br/>
+        Tel: 321 641 7934
       </div>
 
       <hr />
@@ -33,7 +33,7 @@ import{a as bn}from"./chunk-6HSLBKDU.js";import{a as mn}from"./chunk-ZMK2ANYN.js
 
       <div style="text-align:center; margin-top:15px">
         *****************************<br/>
-        Este documento no es factura legal.<br/>.<br/>
+        Este documento es solo de car\xE1cter informativo<br/>.<br/>
         .
         </div>
     </div>
