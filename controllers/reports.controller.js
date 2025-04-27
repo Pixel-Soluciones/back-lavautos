@@ -11,7 +11,7 @@ const getDailyReport = async (req, res) => {
             attributes: ['id', 'placa', 'valor'],
             where: {
                 createdAt: {
-                    [Op.between]: [new Date(fecha), new Date(fecha + ' 23:59:59')]
+                    [Op.between]: [new Date(`${fecha}T00:00:00`), new Date(`${fecha}T23:59:59`)]
                 }
             },
             include: [
