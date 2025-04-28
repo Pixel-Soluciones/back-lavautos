@@ -42,7 +42,7 @@ import{a as bn}from"./chunk-6HSLBKDU.js";import{a as mn}from"./chunk-ZMK2ANYN.js
 
       <div style="text-align:center; margin-top:15px">
         *****************************<br/>
-        Este documento de car\xE1cter informativo y no constituye una factura<br/>.<br/>
+        Este documento es de car\xE1cter informativo y no constituye una factura<br/>.<br/>
         .
         </div>
     </div>
