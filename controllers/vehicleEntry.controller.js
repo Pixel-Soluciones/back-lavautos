@@ -19,6 +19,7 @@ const getVehicleEntries = async (req, res) => {
             placa: {
               [Op.eq]: Sequelize.col("VehicleEntry.placa"),
             },
+            id_trabajador: null,
             [Op.and]: [
               Sequelize.where(
                 Sequelize.fn(
