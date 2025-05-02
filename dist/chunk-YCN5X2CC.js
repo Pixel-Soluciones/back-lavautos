@@ -30,8 +30,8 @@ import{a as bn}from"./chunk-6HSLBKDU.js";import{a as mn}from"./chunk-ZMK2ANYN.js
       <div style="margin: 10px;">
         Tipo: ${W.Vehicle.tipo}<br/>
         Marca: ${W.Vehicle.marca}<br/>
-        L\xEDnea: ${W.Vehicle.linea}<br/>
         Propietario: ${W.Vehicle.nombre_prop}<br/>        
+        C\xE9dula: ${W.Vehicle.cedula_prop}<br/>
       </div>
 
       <div style="margin:5px; border-top:1px dashed #000; border-bottom:1px dashed #000; padding-top: 10px; padding-bottom: 5px;">
@@ -49,10 +49,10 @@ import{a as bn}from"./chunk-6HSLBKDU.js";import{a as mn}from"./chunk-ZMK2ANYN.js
   `,document.body.appendChild(E);try{let iA=(yield(0,xn.default)(E)).toDataURL("image/png").split(",")[1],oA=`rawbt:data:image/png;base64,${iA}`,cA=`data:image/png;base64,${iA}`;if(/Android/i.test(navigator.userAgent))window.location.href=oA;else{let Ae=window.open();Ae?Ae.document.write(`<img src="${cA}" alt="Voucher">`):console.error("No se pudo abrir una nueva pesta\xF1a")}}catch(V){console.error("Error al generar la imagen del voucher:",V)}finally{document.body.removeChild(E)}});var pe=Un(iQ());var Sn=class W{constructor(d,M,E){this.router=d;this.entryService=M;this.servicesService=E}entries=[];columns=[];data=[];selectedServices=[];servicios=[];actions=[{title:"Detalle",action:"View",icon:"iconos-botones/ver.png"},{title:"Registrar Salida",action:"Checkout",icon:"iconos-botones/reg-salida.png"},{title:"Imprimir",action:"Print",icon:"iconos-botones/imprimir.png"}];ngOnInit(){this.columns=Ln("entries"),this.entryService.getAll().subscribe(d=>{this.entries=d})}handleAction(d){d.action=="Edit"?this.edit(d.row):d.action=="Delete"?this.delete(d.row.id_ingreso):d.action=="View"?this.view(d.row):d.action=="Checkout"?this.checkout(d.row):d.action=="Print"&&this.print(d.row)}print(d){this.filterAsignedServices(d.AsignedServices).subscribe(M=>{let E=M;d.estado==="EN PROCESO"?ut(d,E,"INGRESO"):d.estado==="TERMINADO"?ut(d,E,"SALIDA"):pe.default.fire({showConfirmButton:!1,title:"No hay informaci\xF3n",icon:"error",timer:1500})})}edit(d){this.entryService.setEntry(d),this.router.navigate(["nuevo-ingreso"])}delete(d){pe.default.fire({title:"\xBFEst\xE1 seguro?",icon:"warning",showCancelButton:!0,confirmButtonColor:"#32cd32",cancelButtonColor:"#d33",confirmButtonText:"Si",cancelButtonText:"No"}).then(M=>{M.isConfirmed&&this.entryService.cancelEntry(d).subscribe(E=>{pe.default.fire({showConfirmButton:!1,title:"Registro cancelado",icon:"success",timer:1500}),this.ngOnInit()})})}view(d){this.filterAsignedServices(d.AsignedServices).subscribe(M=>{this.selectedServices=M;let E=d.Vehicle,S=M.reduce((oA,cA)=>oA+(cA.valor_servicio||0),0),AA=`
           <p>Placa: ${E.placa}</p>
           <p>Marca: ${E.marca}</p>
-          <p>L\xEDnea: ${E.linea}</p>
+          <p>C\xE9dula: ${E.cedula_prop||"No aplica"}</p>
           <p>Propietario: ${E.nombre_prop}</p>
           <p>Contacto: ${E.contacto}</p>
-          <p>Clave: ${E.clave}</p>
+          <p>Clave: ${E.clave||"No aplica"}</p>
         `,V=M.map(oA=>`<li>${oA.nombre_servicio} - $${oA.valor_servicio.toLocaleString()}</li>`).join(""),iA=`
           \u{1F697} Informaci\xF3n del Veh\xEDculo
           ${AA.replace(/<[^>]*>/g,"")}
