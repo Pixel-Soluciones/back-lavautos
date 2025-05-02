@@ -14,7 +14,7 @@ const Vehicle = sequelize.define("Vehicle", {
   },
   linea: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   marca: {
     type: DataTypes.STRING,
@@ -27,6 +27,10 @@ const Vehicle = sequelize.define("Vehicle", {
   nombre_prop: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  cedula_prop: {
+    type: DataTypes.STRING(10),
+    allowNull: true,
   },
   contacto: {
     type: DataTypes.STRING(15),
