@@ -25,7 +25,7 @@ const connectDB = async () => {
 
     // Sync all models with the database
     // force (develop) / alter (production)
-    // await pool.sync({ alter: true })
+    //await pool.sync({ alter: true })
     // info('Models synchronized with the database')
   } catch (e) {
     error("Error connecting to MySQL database", e);

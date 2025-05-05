@@ -16,10 +16,9 @@ const getVehicleEntries = async (req, res) => {
           model: AsignedServices,
           required: false,
           where: {
-            placa: {
-              [Op.eq]: Sequelize.col("VehicleEntry.placa"),
+            id_ingreso: {
+              [Op.eq]: Sequelize.col("VehicleEntry.id_ingreso"),
             },
-            status: "active",
             [Op.and]: [
               Sequelize.where(
                 Sequelize.fn(
@@ -87,6 +86,7 @@ const createVehicleEntry = async (req, res) => {
             placa: vehicleData.placa,
             id_servicio: service.id_servicio,
             valor: service.valor_servicio,
+            id_ingreso: vehicleEntry.id_ingreso,
           },
           { transaction }
         );
@@ -170,6 +170,7 @@ const updateVehicleEntry = async (req, res) => {
             placa: vehicleData.placa,
             id_servicio: service.id_servicio,
             valor: service.valor_servicio,
+            id_ingreso: vehicleEntry.id_ingreso,
           },
           { transaction }
         );
@@ -269,7 +270,7 @@ const completeService = async (req, res) => {
       await Promise.all(
         entry.AsignedServices.map(async (service) => {
           await AsignedServices.update(
-            { id_trabajador: service.id_trabajador, status: "inactive" },
+            { id_trabajador: service.id_trabajador },
             {
               where: { id: service.id },
               transaction,
