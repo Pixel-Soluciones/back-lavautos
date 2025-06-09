@@ -54,6 +54,8 @@ import{a as bn}from"./chunk-4DO3RWAK.js";import{a as mn}from"./chunk-HU72DWXD.js
           <p>Contacto: ${E.contacto}</p>
           <p>Clave: ${E.clave||"No aplica"}</p>
         `,V=M.map(oA=>`<li>${oA.nombre_servicio} - $${oA.valor_servicio.toLocaleString()}</li>`).join(""),iA=`
+          *Lavautos Colombianito*
+
           \u{1F697} Informaci\xF3n del Veh\xEDculo
           ${AA.replace(/<[^>]*>/g,"")}
           
